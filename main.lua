@@ -135,6 +135,7 @@ end)
 
 
 --[[ Set up sound ]]
+--[[
 snx.changeAPI("Audiere")
 
 i = snx.SoundInfo()
@@ -144,3 +145,4 @@ i.ambient = true
 s = snx.SoundHandle("bgaudio")
 s:configure(i)
 s:trigger(1)
+]]
