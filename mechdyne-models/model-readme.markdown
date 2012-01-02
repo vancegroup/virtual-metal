@@ -1,5 +1,5 @@
-About Model
-===========
+About Model `modified.osg`
+==========================
 
 [Mechdyne][mechdyne] supplied us with an original SolidWorks 2011 document of the system. We are not permitted to make this publically available. However, per an email documented in `usage-restrictions.pdf`, we can use a triangulated model.
 
