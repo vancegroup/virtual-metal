@@ -10,16 +10,31 @@ assert(fn, "Have to load this from file, not copy and paste, or we can't find ou
 -- This will add the directory passed (or the parent directory of a file, such as fn)
 -- to the model search path.
 vrjLua.appendToModelSearchPath(fn)
-vrjLua.appendToLuaRequirePath(fn)
 
 --[[ Set up model ]]
 metalmodel = Model("mechdyne-models/modified.osg")
 RelativeTo.World:addChild(
-	Transform{
-		scale = .0005,
-		metalmodel
+	Group{
+		Transform{
+			position = {4, 0, 0},
+			scale = .0005,
+			metalmodel
+		},
+		Transform{
+			position = {0, 0, 0},
+			Model("images.ive")
+		}
 	}
 )
+
+require("Text")
+
+RelativeTo.World:addChild(TextGeode{
+	"Training Session",
+	position = {.5, 1.3, 0},
+	lineHeight = .15,
+	font = Font("DroidSansBold"),
+})
 
 function getNamedChild(node, name)
 	for i=0,node:getNumChildren() - 1 do
@@ -133,16 +148,34 @@ end)
 
 
 
+function startSound()
+	--[[ Set up sound ]]
+	snx.changeAPI("Audiere")
 
---[[ Set up sound ]]
+	i = snx.SoundInfo()
+	i.filename = vrjLua.findInModelSearchPath("aquascape_sunrise_recoded.mp3")
+
+	i.ambient = true
+	s = snx.SoundHandle("bgaudio")
+	s:configure(i)
+	s:trigger(-1)
+end
+
+--print("Run 'startSound()' to begin the audio")
+
 --[[
-snx.changeAPI("Audiere")
+do
+	local image = Model(vrjLua.findInModelSearchPath("colorwithshadow_transparent_large.png"))
 
-i = snx.SoundInfo()
-i.filename = vrjLua.findInModelSearchPath("Aquascape - Sunrise.mp3")
+	local tex = osg.Texture2D(image)
 
-i.ambient = true
-s = snx.SoundHandle("bgaudio")
-s:configure(i)
-s:trigger(1)
+	local ss = osg.StateSet()
+
+	ss:setTextureAttributeAndModes(0, tex, osg.StateAttribute.Values.ON)
+
+	GL_LIGHTING = 0x0B50
+	ss:setMode(GL_LIGHTING, osg.StateAttribute.Values.OFF)
+	local g = osg.Geometry()
+	local coords=osg.Vec3Array(4)
+end
 ]]
