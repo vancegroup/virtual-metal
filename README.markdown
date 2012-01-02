@@ -9,6 +9,14 @@ Load `main.lua` in NavTestbed to begin.
 
 As a basic "NavTestbed" application, button 0 (A on the Wiimote) will navigate in the direction you point. Button 1 (B aka trigger on the Wiimote) will allow you to "draw" on the model with spheres.
 
+Furthermore, button 2 (the Home button on the Wiimote) will cycle through three visibility modes for the model of METaL:
+
+* Screens and scrim displayed, projection frustra not displayed
+* Screens and scrim not displayed (structure exposed), projection frustra displayed
+* Screens and scrim not displayed (structure exposed), projection frustra not displayed
+
+See `model-readme.markdown` in the `mechdyne-models` folder for more information on what these components are.
+
 
 
 [vrjlua]:https://github.com/vance-group/vr-jugglua
