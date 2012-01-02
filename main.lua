@@ -22,7 +22,7 @@ RelativeTo.World:addChild(
 		},
 		Transform{
 			position = {0, 0, 0},
-			Model("images.ive")
+			Model("other-models/images.ive")
 		}
 	}
 )
