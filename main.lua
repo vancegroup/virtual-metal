@@ -12,27 +12,161 @@ assert(fn, "Have to load this from file, not copy and paste, or we can't find ou
 vrjLua.appendToModelSearchPath(fn)
 
 --[[ Set up model ]]
+room = Model[[component-models\Room\Virtual-Metal Room.osg]]
+
+RelativeTo.World:addChild(
+	Transform{
+		position = {43.7, 0, 21},
+		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
+		room
+	}
+)
+
 metalmodel = Model("mechdyne-models/modified.osg")
+
 RelativeTo.World:addChild(
 	Group{
 		Transform{
-			position = {4, 0, 0},
-			scale = .0005,
+			position = {5, .055, -2.8},
+			orientation = AngleAxis(Degrees(30), Axis{0.0, 1.0, 0.0}),
+			scale = .0009,
 			metalmodel
 		},
 		Transform{
-			position = {0, 0, 0},
+			position = {-100, 0, -3},
+			orientation = AngleAxis(Degrees(0), Axis{0.0, 1.0, 0.0}),
 			Model("other-models/images.ive")
 		}
 	}
 )
+
+serverrack = Model("sketchup-matched-photo-models/rack model.osg")
+
+RelativeTo.World:addChild(
+	Transform{
+		position = {3, 1.22, -3.9},
+		orientation = AngleAxis(Degrees(35), Axis{0.0, 1.0, 0.0}),
+		serverrack
+	}
+)
+
+desk1 = Model[[component-models\Desk\Desk.lwo.osg]]
+desk2 = Model[[component-models\Desk\Desk.lwo.osg]]
+monitor1 = Model[[component-models\Monitor\Monitor.lwo.osg]]
+monitor2 = Model[[component-models\Monitor\Monitor.lwo.osg]]
+monitor3 = Model[[component-models\Monitor\Monitor.lwo.osg]]
+monitor4 = Model[[component-models\Monitor\Monitor.lwo.osg]]
+touchpanel = Model[[component-models\AMX NXT-CV10 Touch Panel\Touch Panel Assembly.lwo.osg]]
+keyboard = Model[[component-models\Keyboard\Keyboard.lwo.osg]]
+mouse = Model[[component-models\Wireless Mouse\Wireless Mouse.osg]]
+glassesandtarget = Model[[component-models\Glasses Target\Glasses Target.lwo.osg]]
+treetarget = Model[[component-models\Tree Target\Tree Target Assembly (with Wiimote).lwo.osg]]
+clawtarget = Model[[component-models\Claw Target\Claw Target.lwo.osg]]
+handtarget = Model[[component-models\Hand Target\Hand Target.lwo.osg]]
+aeronchair = Model[[component-models\Aeron Chair\HMI_Aeron_Chair_3D.osg]]
+
+workspace = Group{
+
+	Transform{
+		position = {.1, 0, .25},
+		orientation = AngleAxis(Degrees(0), Axis{0.0, 0.0, 0.0}),
+		desk1
+	},
+	
+	Transform{
+		position = {1.63, 0, .25},
+		orientation = AngleAxis(Degrees(0), Axis{0.0, 0.0, 0.0}),
+		desk2
+	},
+
+	Transform{
+		position = {.54, 0, 0},
+		orientation = AngleAxis(Degrees(10), Axis{0.0, 1.0, 0.0}),
+		monitor1
+	},
+		
+	Transform{
+		position = {1.08, 0, -.07},
+		orientation = AngleAxis(Degrees(5), Axis{0.0, 1.0, 0.0}),
+		monitor2
+	},
+		
+	Transform{
+		position = {1.64, 0, -.07},
+		orientation = AngleAxis(Degrees(-5), Axis{0.0, 1.0, 0.0}),
+		monitor3
+	},
+		
+	Transform{
+		position = {2.18, 0, 0},
+		orientation = AngleAxis(Degrees(-10), Axis{0.0, 1.0, 0.0}),
+		monitor4
+	},
+	
+	Transform{
+		position = {2.25, .005, .28},
+		orientation = AngleAxis(Degrees(-40), Axis{0.0, 1.0, 0.0}),
+		touchpanel
+	},
+	
+	Transform{
+		position = {1.4, 0, .45},
+		orientation = AngleAxis(Degrees(-90), Axis{0.0, 1.0, 0.0}),
+		keyboard
+	},
+	
+	Transform{
+		position = {2.1, 0, .55},
+		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
+		mouse
+	},
+	
+	Transform{
+		position = {0, -.03, .65},
+		orientation = AngleAxis(Degrees(180), Axis{0.0, 1.0, 0.0}),
+		glassesandtarget
+	},
+	
+	Transform{
+		position = {-.05, 0, .5},
+		orientation = AngleAxis(Degrees(0), Axis{0.0, 0.0, 0.0}),
+		treetarget
+	},
+	
+	Transform{
+		position = {-.55, .075, .6},
+		orientation = AngleAxis(Degrees(180), Axis{0.0, 0.0, 1.0}),
+		clawtarget
+	},
+	
+	Transform{
+		position = {-.4, -.065, .55},
+		orientation = AngleAxis(Degrees(180), Axis{0.0, 1.0, 0.0}),
+		handtarget
+	},
+	
+	Transform{
+		position = {1.9, -.755, 1.9},
+		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
+		aeronchair
+	}
+}
+
+groupedworkspace = Transform{
+	position = {2.75, .715, -2.9},
+	orientation = AngleAxis(Degrees(-60), Axis{0.0, 1.0, 0.0}),
+	workspace
+	}
+	
+RelativeTo.World:addChild(groupedworkspace)
 
 require("Text")
 
 RelativeTo.World:addChild(
 	TextGeode{
 		"Training Session",
-		position = {.5, 1.3, 0},
+		position = {-100, 1.3, 0},
+		orientation = AngleAxis(Degrees(0), Axis{0.0, 1.0, 0.0}),
 		lineHeight = .15,
 		font = Font("DroidSansBold"),
 	}
