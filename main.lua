@@ -222,7 +222,7 @@ RelativeTo.World:addChild(
 	}
 )
 
-cubicles = Model[[component-models/cubicles/cubicles.osg]]
+cubicles = Model[[component-models/cubicles/cubicles.ive]]
 
 RelativeTo.World:addChild(
 	Transform{
