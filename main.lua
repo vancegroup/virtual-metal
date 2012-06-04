@@ -12,11 +12,11 @@ assert(fn, "Have to load this from file, not copy and paste, or we can't find ou
 vrjLua.appendToModelSearchPath(fn)
 
 --[[ Set up model ]]
-room = Model[[component-models\Room\Virtual-Metal Room.osg]]
+room = Model[[Black Engineering Model/Black.osg]]
 
 RelativeTo.World:addChild(
 	Transform{
-		position = {43.7, 0, 21},
+		position = {41.7, 0, 25.5},
 		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
 		room
 	}
@@ -122,25 +122,25 @@ workspace = Group{
 	},
 	
 	Transform{
-		position = {0, -.03, .65},
+		position = {1, -.03, .65},
 		orientation = AngleAxis(Degrees(180), Axis{0.0, 1.0, 0.0}),
 		glassesandtarget
 	},
 	
 	Transform{
-		position = {-.05, 0, .5},
+		position = {.95, 0, .5},
 		orientation = AngleAxis(Degrees(0), Axis{0.0, 0.0, 0.0}),
 		treetarget
 	},
 	
 	Transform{
-		position = {-.55, .075, .6},
+		position = {.45, .075, .6},
 		orientation = AngleAxis(Degrees(180), Axis{0.0, 0.0, 1.0}),
 		clawtarget
 	},
 	
 	Transform{
-		position = {-.4, -.065, .55},
+		position = {.6, -.065, .55},
 		orientation = AngleAxis(Degrees(180), Axis{0.0, 1.0, 0.0}),
 		handtarget
 	},
