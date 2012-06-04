@@ -10,7 +10,7 @@ Group {
   }
   num_children 1
   Group {
-    name "V:\\Applications\\Vances_group\\METaL\\Models of Components\\Table\\Table.lwo"
+    name "H:\\Documents\\virtual-metal\\component-models\\Desk\\Desk.lwo"
     nodeMask 0xffffffff
     cullingActive TRUE
     StateSet {
@@ -31,7 +31,7 @@ Group {
     }
     num_children 1
     Group {
-      name "Table"
+      name "Desk"
       nodeMask 0xffffffff
       cullingActive TRUE
       num_children 2
@@ -1248,8 +1248,8 @@ Group {
             GL_CULL_FACE ON
             Material {
               ColorMode OFF
-              ambientColor 1 1 1 1
-              diffuseColor 1 1 1 1
+              ambientColor 0.752941 0.752941 0.752941 1
+              diffuseColor 0.752941 0.752941 0.752941 1
               specularColor 0.301177 0.301177 0.301177 1
               emissionColor 0.0470588 0.0470588 0.0470588 1
               shininess 8
