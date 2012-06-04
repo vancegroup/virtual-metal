@@ -50,6 +50,16 @@ RelativeTo.World:addChild(
 	}
 )
 
+walkwayandxray = Model("component-models/Walkway/walkwayandxray.lwo.osg")
+
+RelativeTo.World:addChild(
+	Transform{
+		position = {17.35, 1.85, -1.35},
+		orientation = AngleAxis(Degrees(-90), Axis{0.0, 1.0, 0.0}),
+		walkwayandxray
+	}
+)
+
 desk1 = Model[[component-models\Desk\Desk.lwo.osg]]
 desk2 = Model[[component-models\Desk\Desk.lwo.osg]]
 monitor1 = Model[[component-models\Monitor\Monitor.lwo.osg]]
@@ -157,20 +167,80 @@ groupedworkspace = Transform{
 	orientation = AngleAxis(Degrees(-60), Axis{0.0, 1.0, 0.0}),
 	workspace
 	}
-	
+
 RelativeTo.World:addChild(groupedworkspace)
 
-require("Text")
+
+
+fluorescent1 = Model[[component-models\Lights\Fluorescent1.osg]]
+fluorescent2 = Model[[component-models\Lights\Fluorescent2.osg]]
+fluorescent3 = Model[[component-models\Lights\Fluorescent2.osg]]
+fluorescent4 = Model[[component-models\Lights\Fluorescent2.osg]]
+fluorescent5 = Model[[component-models\Lights\Fluorescent3.osg]]
+fluorescent6 = Model[[component-models\Lights\Fluorescent3.osg]]
+
+fluorescentlights = Group{
+
+	Transform{
+		position = {2.5, 4.5, 9.2},
+		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
+		fluorescent1
+	},
+
+	Transform{
+		position = {5.9, 4.5, 3.9},
+		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
+		fluorescent2
+	},
+
+	Transform{
+		position = {9.2, 4.5, 3.9},
+		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
+		fluorescent3
+	},
+
+	Transform{
+		position = {12.5, 4.5, 3.9},
+		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
+		fluorescent4
+	},
+
+	Transform{
+		position = {16, 5.5, 1.5},
+		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
+		fluorescent5
+	},
+
+	Transform{
+		position = {18, 5.5, 1.5},
+		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
+		fluorescent6
+	},
+}
+
+RelativeTo.World:addChild(fluorescentlights)
+
+
+desk3 = Model[[component-models\Desk\Desk.lwo.osg]]
 
 RelativeTo.World:addChild(
-	TextGeode{
-		"Training Session",
-		position = {-100, 1.3, 0},
-		orientation = AngleAxis(Degrees(0), Axis{0.0, 1.0, 0.0}),
-		lineHeight = .15,
-		font = Font("DroidSansBold"),
+	Transform{
+		position = {7.5, .715, 1},
+		orientation = AngleAxis(Degrees(0), Axis{0.0, 0.0, 0.0}),
+		desk3
 	}
 )
+
+cubicles = Model[[component-models\cubicles\cubicles.osg]]
+
+RelativeTo.World:addChild(
+	Transform{
+		position = {4, 0, 3.9},
+		orientation = AngleAxis(Degrees(-90), Axis{0.0, 1.0, 0.0}),
+		cubicles
+	}
+)
+
 
 function getNamedChild(node, name)
 	for i = 0, node:getNumChildren() - 1 do
@@ -192,7 +262,8 @@ end
 --[[ Set up lighting ]]
 mylight = osg.Light()
 mylight:setLightNum(0)
-mylight:setAmbient(osg.Vec4(.5, .5, .5, 1))
+mylight:setAmbient(osg.Vec4(.52, .5, .52, 1))
+mylight:setConstantAttenuation(.000001)
 mylight:setPosition(osg.Vec4(1.5, 2, 2, 0))
 mylightsource = osg.LightSource()
 mylightsource:setLight(mylight)
