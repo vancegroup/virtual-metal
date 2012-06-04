@@ -62,12 +62,8 @@ RelativeTo.World:addChild(
 	}
 )
 
-desk1 = Model[[component-models/Desk/Desk.lwo.osg]]
-desk2 = Model[[component-models/Desk/Desk.lwo.osg]]
-monitor1 = Model[[component-models/Monitor/Monitor.lwo.osg]]
-monitor2 = Model[[component-models/Monitor/Monitor.lwo.osg]]
-monitor3 = Model[[component-models/Monitor/Monitor.lwo.osg]]
-monitor4 = Model[[component-models/Monitor/Monitor.lwo.osg]]
+desk = Model[[component-models/Desk/Desk.lwo.osg]]
+monitor = Model[[component-models/Monitor/Monitor.lwo.osg]]
 touchpanel = Model[[component-models/AMX NXT-CV10 Touch Panel/Touch Panel Assembly.lwo.osg]]
 keyboard = Model[[component-models/Keyboard/Keyboard.lwo.osg]]
 mouse = Model[[component-models/Wireless Mouse/Wireless Mouse.osg]]
@@ -82,37 +78,37 @@ workspace = Group{
 	Transform{
 		position = {.1, 0, .25},
 		orientation = AngleAxis(Degrees(0), Axis{0.0, 0.0, 0.0}),
-		desk1
+		desk
 	},
 
 	Transform{
 		position = {1.63, 0, .25},
 		orientation = AngleAxis(Degrees(0), Axis{0.0, 0.0, 0.0}),
-		desk2
+		desk
 	},
 
 	Transform{
 		position = {.54, 0, 0},
 		orientation = AngleAxis(Degrees(10), Axis{0.0, 1.0, 0.0}),
-		monitor1
+		monitor
 	},
 
 	Transform{
 		position = {1.08, 0, -.07},
 		orientation = AngleAxis(Degrees(5), Axis{0.0, 1.0, 0.0}),
-		monitor2
+		monitor
 	},
 
 	Transform{
 		position = {1.64, 0, -.07},
 		orientation = AngleAxis(Degrees(-5), Axis{0.0, 1.0, 0.0}),
-		monitor3
+		monitor
 	},
 
 	Transform{
 		position = {2.18, 0, 0},
 		orientation = AngleAxis(Degrees(-10), Axis{0.0, 1.0, 0.0}),
-		monitor4
+		monitor
 	},
 
 	Transform{
@@ -217,14 +213,12 @@ fluorescentlights = Group{
 
 RelativeTo.World:addChild(fluorescentlights)
 
-
-desk3 = Model[[component-models/Desk/Desk.lwo.osg]]
-
+-- Desk by the right wall
 RelativeTo.World:addChild(
 	Transform{
 		position = {7.5, .715, 1},
 		orientation = AngleAxis(Degrees(0), Axis{0.0, 0.0, 0.0}),
-		desk3
+		desk
 	}
 )
 
