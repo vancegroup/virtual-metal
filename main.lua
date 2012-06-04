@@ -11,6 +11,8 @@ assert(fn, "Have to load this from file, not copy and paste, or we can't find ou
 -- to the model search path.
 vrjLua.appendToModelSearchPath(fn)
 
+dofile(vrjLua.findInModelSearchPath([[simpleLightseditjp.lua]]))
+
 --[[ Set up model ]]
 room = Model[[Black Engineering Model/Black.osg]]
 
@@ -82,7 +84,7 @@ workspace = Group{
 		orientation = AngleAxis(Degrees(0), Axis{0.0, 0.0, 0.0}),
 		desk1
 	},
-	
+
 	Transform{
 		position = {1.63, 0, .25},
 		orientation = AngleAxis(Degrees(0), Axis{0.0, 0.0, 0.0}),
@@ -94,67 +96,67 @@ workspace = Group{
 		orientation = AngleAxis(Degrees(10), Axis{0.0, 1.0, 0.0}),
 		monitor1
 	},
-		
+
 	Transform{
 		position = {1.08, 0, -.07},
 		orientation = AngleAxis(Degrees(5), Axis{0.0, 1.0, 0.0}),
 		monitor2
 	},
-		
+
 	Transform{
 		position = {1.64, 0, -.07},
 		orientation = AngleAxis(Degrees(-5), Axis{0.0, 1.0, 0.0}),
 		monitor3
 	},
-		
+
 	Transform{
 		position = {2.18, 0, 0},
 		orientation = AngleAxis(Degrees(-10), Axis{0.0, 1.0, 0.0}),
 		monitor4
 	},
-	
+
 	Transform{
 		position = {2.25, .005, .28},
 		orientation = AngleAxis(Degrees(-40), Axis{0.0, 1.0, 0.0}),
 		touchpanel
 	},
-	
+
 	Transform{
 		position = {1.4, 0, .45},
 		orientation = AngleAxis(Degrees(-90), Axis{0.0, 1.0, 0.0}),
 		keyboard
 	},
-	
+
 	Transform{
 		position = {2.1, 0, .55},
 		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
 		mouse
 	},
-	
+
 	Transform{
 		position = {1, -.03, .65},
 		orientation = AngleAxis(Degrees(180), Axis{0.0, 1.0, 0.0}),
 		glassesandtarget
 	},
-	
+
 	Transform{
 		position = {.95, 0, .5},
 		orientation = AngleAxis(Degrees(0), Axis{0.0, 0.0, 0.0}),
 		treetarget
 	},
-	
+
 	Transform{
 		position = {.45, .075, .6},
 		orientation = AngleAxis(Degrees(180), Axis{0.0, 0.0, 1.0}),
 		clawtarget
 	},
-	
+
 	Transform{
 		position = {.6, -.065, .55},
 		orientation = AngleAxis(Degrees(180), Axis{0.0, 1.0, 0.0}),
 		handtarget
 	},
-	
+
 	Transform{
 		position = {1.9, -.755, 1.9},
 		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
