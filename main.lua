@@ -172,14 +172,9 @@ groupedworkspace = Transform{
 
 RelativeTo.World:addChild(groupedworkspace)
 
-
-
 fluorescent1 = Model[[component-models/Lights/Fluorescent1.osg]]
 fluorescent2 = Model[[component-models/Lights/Fluorescent2.osg]]
-fluorescent3 = Model[[component-models/Lights/Fluorescent2.osg]]
-fluorescent4 = Model[[component-models/Lights/Fluorescent2.osg]]
-fluorescent5 = Model[[component-models/Lights/Fluorescent3.osg]]
-fluorescent6 = Model[[component-models/Lights/Fluorescent3.osg]]
+fluorescent3 = Model[[component-models/Lights/Fluorescent3.osg]]
 
 fluorescentlights = Group{
 
@@ -198,25 +193,25 @@ fluorescentlights = Group{
 	Transform{
 		position = {9.2, 4.5, 3.9},
 		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
-		fluorescent3
+		fluorescent2
 	},
 
 	Transform{
 		position = {12.5, 4.5, 3.9},
 		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
-		fluorescent4
+		fluorescent2
 	},
 
 	Transform{
 		position = {16, 5.5, 1.5},
 		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
-		fluorescent5
+		fluorescent3
 	},
 
 	Transform{
 		position = {18, 5.5, 1.5},
 		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
-		fluorescent6
+		fluorescent3
 	},
 }
 
