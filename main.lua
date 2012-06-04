@@ -62,20 +62,20 @@ RelativeTo.World:addChild(
 	}
 )
 
-desk1 = Model[[component-models\Desk\Desk.lwo.osg]]
-desk2 = Model[[component-models\Desk\Desk.lwo.osg]]
-monitor1 = Model[[component-models\Monitor\Monitor.lwo.osg]]
-monitor2 = Model[[component-models\Monitor\Monitor.lwo.osg]]
-monitor3 = Model[[component-models\Monitor\Monitor.lwo.osg]]
-monitor4 = Model[[component-models\Monitor\Monitor.lwo.osg]]
-touchpanel = Model[[component-models\AMX NXT-CV10 Touch Panel\Touch Panel Assembly.lwo.osg]]
-keyboard = Model[[component-models\Keyboard\Keyboard.lwo.osg]]
-mouse = Model[[component-models\Wireless Mouse\Wireless Mouse.osg]]
-glassesandtarget = Model[[component-models\Glasses Target\Glasses Target.lwo.osg]]
-treetarget = Model[[component-models\Tree Target\Tree Target Assembly (with Wiimote).lwo.osg]]
-clawtarget = Model[[component-models\Claw Target\Claw Target.lwo.osg]]
-handtarget = Model[[component-models\Hand Target\Hand Target.lwo.osg]]
-aeronchair = Model[[component-models\Aeron Chair\HMI_Aeron_Chair_3D.osg]]
+desk1 = Model[[component-models/Desk/Desk.lwo.osg]]
+desk2 = Model[[component-models/Desk/Desk.lwo.osg]]
+monitor1 = Model[[component-models/Monitor/Monitor.lwo.osg]]
+monitor2 = Model[[component-models/Monitor/Monitor.lwo.osg]]
+monitor3 = Model[[component-models/Monitor/Monitor.lwo.osg]]
+monitor4 = Model[[component-models/Monitor/Monitor.lwo.osg]]
+touchpanel = Model[[component-models/AMX NXT-CV10 Touch Panel/Touch Panel Assembly.lwo.osg]]
+keyboard = Model[[component-models/Keyboard/Keyboard.lwo.osg]]
+mouse = Model[[component-models/Wireless Mouse/Wireless Mouse.osg]]
+glassesandtarget = Model[[component-models/Glasses Target/Glasses Target.lwo.osg]]
+treetarget = Model[[component-models/Tree Target/Tree Target Assembly (with Wiimote).lwo.osg]]
+clawtarget = Model[[component-models/Claw Target/Claw Target.lwo.osg]]
+handtarget = Model[[component-models/Hand Target/Hand Target.lwo.osg]]
+aeronchair = Model[[component-models/Aeron Chair/HMI_Aeron_Chair_3D.osg]]
 
 workspace = Group{
 
@@ -174,12 +174,12 @@ RelativeTo.World:addChild(groupedworkspace)
 
 
 
-fluorescent1 = Model[[component-models\Lights\Fluorescent1.osg]]
-fluorescent2 = Model[[component-models\Lights\Fluorescent2.osg]]
-fluorescent3 = Model[[component-models\Lights\Fluorescent2.osg]]
-fluorescent4 = Model[[component-models\Lights\Fluorescent2.osg]]
-fluorescent5 = Model[[component-models\Lights\Fluorescent3.osg]]
-fluorescent6 = Model[[component-models\Lights\Fluorescent3.osg]]
+fluorescent1 = Model[[component-models/Lights/Fluorescent1.osg]]
+fluorescent2 = Model[[component-models/Lights/Fluorescent2.osg]]
+fluorescent3 = Model[[component-models/Lights/Fluorescent2.osg]]
+fluorescent4 = Model[[component-models/Lights/Fluorescent2.osg]]
+fluorescent5 = Model[[component-models/Lights/Fluorescent3.osg]]
+fluorescent6 = Model[[component-models/Lights/Fluorescent3.osg]]
 
 fluorescentlights = Group{
 
@@ -223,7 +223,7 @@ fluorescentlights = Group{
 RelativeTo.World:addChild(fluorescentlights)
 
 
-desk3 = Model[[component-models\Desk\Desk.lwo.osg]]
+desk3 = Model[[component-models/Desk/Desk.lwo.osg]]
 
 RelativeTo.World:addChild(
 	Transform{
@@ -233,7 +233,7 @@ RelativeTo.World:addChild(
 	}
 )
 
-cubicles = Model[[component-models\cubicles\cubicles.osg]]
+cubicles = Model[[component-models/cubicles/cubicles.osg]]
 
 RelativeTo.World:addChild(
 	Transform{
