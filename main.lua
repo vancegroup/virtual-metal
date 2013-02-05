@@ -13,55 +13,11 @@ vrjLua.appendToModelSearchPath(fn)
 
 dofile(vrjLua.findInModelSearchPath([[simpleLightseditjp.lua]]))
 
---[[ Set up model ]]
-room = Model[[Black Engineering Model/Black.osg]]
-
-RelativeTo.World:addChild(
-	Transform{
-		position = {41.7, 0, 25.5},
-		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
-		room
-	}
-)
-
-metalmodel = Model("mechdyne-models/modified.osg")
-
-RelativeTo.World:addChild(
-	Group{
-		Transform{
-			position = {5, .055, -2.8},
-			orientation = AngleAxis(Degrees(30), Axis{0.0, 1.0, 0.0}),
-			scale = .0009,
-			metalmodel
-		},
-		Transform{
-			position = {-100, 0, -3},
-			orientation = AngleAxis(Degrees(0), Axis{0.0, 1.0, 0.0}),
-			Model("other-models/images.ive")
-		}
-	}
-)
-
-serverrack = Model("sketchup-matched-photo-models/rack model.osg")
-
-RelativeTo.World:addChild(
-	Transform{
-		position = {3, 1.22, -3.9},
-		orientation = AngleAxis(Degrees(35), Axis{0.0, 1.0, 0.0}),
-		serverrack
-	}
-)
-
-walkwayandxray = Model("component-models/Walkway/walkwayandxray.lwo.osg")
-
-RelativeTo.World:addChild(
-	Transform{
-		position = {17.35, 1.85, -1.35},
-		orientation = AngleAxis(Degrees(-90), Axis{0.0, 1.0, 0.0}),
-		walkwayandxray
-	}
-)
-
+--[[ Set up models ]]
+blackengineering = Model[[Black Engineering Model/Black.osg]]
+metalmodel = Model[[mechdyne-models/modified.osg]]
+serverrack = Model[[component-models/Server Rack/rack model.osg]]
+walkwayandxray = Model[[component-models/Walkway/walkwayandxray.lwo.osg]]
 desk = Model[[component-models/Desk/Desk.lwo.osg]]
 monitor = Model[[component-models/Monitor/Monitor.lwo.osg]]
 touchpanel = Model[[component-models/AMX NXT-CV10 Touch Panel/Touch Panel Assembly.lwo.osg]]
@@ -72,6 +28,50 @@ treetarget = Model[[component-models/Tree Target/Tree Target Assembly (with Wiim
 clawtarget = Model[[component-models/Claw Target/Claw Target.lwo.osg]]
 handtarget = Model[[component-models/Hand Target/Hand Target.lwo.osg]]
 aeronchair = Model[[component-models/Aeron Chair/HMI_Aeron_Chair_3D.osg]]
+fluorescent1 = Model[[component-models/Lights/Fluorescent1.osg]]
+fluorescent2 = Model[[component-models/Lights/Fluorescent2.osg]]
+fluorescent3 = Model[[component-models/Lights/Fluorescent3.osg]]
+cubicles = Model[[component-models/cubicles/cubicles.ive]]
+
+
+--[[ Arrange models in space ]]
+RelativeTo.World:addChild(
+	Transform{
+		position = {19.5, 0, 42.5},
+		orientation = AngleAxis(Degrees(60), Axis{0.0, 1.0, 0.0}), 
+		blackengineering
+	}
+)
+
+RelativeTo.World:addChild(
+	Group{
+		Transform{
+			position = {1.69, .055, -.25},
+			orientation = AngleAxis(Degrees(0), Axis{0.0, 0.0, 0.0}),
+			scale = .00099,
+			metalmodel
+		},
+	}
+)
+
+
+RelativeTo.World:addChild(
+	Transform{
+		position = {.55, 1.22, -2.20},
+		orientation = AngleAxis(Degrees(-5), Axis{0.0, 1.0, 0.0}),
+		serverrack
+	}
+)
+
+
+RelativeTo.World:addChild(
+	Transform{
+		position = {11.85, 1.85, 7.10},
+		orientation = AngleAxis(Degrees(-120), Axis{0.0, 1.0, 0.0}),
+		walkwayandxray
+	}
+)
+
 
 workspace = Group{
 
@@ -161,77 +161,67 @@ workspace = Group{
 }
 
 groupedworkspace = Transform{
-	position = {2.75, .715, -2.9},
-	orientation = AngleAxis(Degrees(-60), Axis{0.0, 1.0, 0.0}),
+	position = {-.4, .715, -1.4},
+	orientation = AngleAxis(Degrees(-90), Axis{0.0, 1.0, 0.0}),
 	workspace
 	}
 
 RelativeTo.World:addChild(groupedworkspace)
 
-fluorescent1 = Model[[component-models/Lights/Fluorescent1.osg]]
-fluorescent2 = Model[[component-models/Lights/Fluorescent2.osg]]
-fluorescent3 = Model[[component-models/Lights/Fluorescent3.osg]]
-
-fluorescentlights = Group{
+lights = Group{
 
 	Transform{
-		position = {2.5, 4.5, 9.2},
+		position = {3.5, 4.35, 7.5},
 		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
 		fluorescent1
 	},
 
 	Transform{
-		position = {5.9, 4.5, 3.9},
+		position = {6.9, 4.35, 7.75},
 		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
 		fluorescent2
 	},
 
 	Transform{
-		position = {9.2, 4.5, 3.9},
+		position = {9.2, 4.35, 7.75},
 		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
 		fluorescent2
 	},
 
 	Transform{
-		position = {12.5, 4.5, 3.9},
+		position = {12.5, 4.35, 7.75},
 		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
 		fluorescent2
 	},
 
 	Transform{
-		position = {16, 5.5, 1.5},
+		position = {16, 5.7, 1.5},
 		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
 		fluorescent3
 	},
 
 	Transform{
-		position = {18, 5.5, 1.5},
+		position = {18, 5.7, 1.5},
 		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
 		fluorescent3
 	},
 }
 
-RelativeTo.World:addChild(fluorescentlights)
+groupedlights = Transform{
+	position = {-4.3, 0, -1},
+	orientation = AngleAxis(Degrees(-30), Axis{0.0, 1.0, 0.0}),
+	lights
+}
 
--- Desk by the right wall
-RelativeTo.World:addChild(
-	Transform{
-		position = {7.5, .715, 1},
-		orientation = AngleAxis(Degrees(0), Axis{0.0, 0.0, 0.0}),
-		desk
-	}
-)
-
-cubicles = Model[[component-models/cubicles/cubicles.ive]]
+RelativeTo.World:addChild(groupedlights)
 
 RelativeTo.World:addChild(
 	Transform{
-		position = {4, 0, 3.9},
-		orientation = AngleAxis(Degrees(-90), Axis{0.0, 1.0, 0.0}),
+		position = {-2, 0, 5.35},
+		orientation = AngleAxis(Degrees(-120), Axis{0.0, 1.0, 0.0}), --was -90 degrees about y
 		cubicles
 	}
 )
-
 
 function getNamedChild(node, name)
 	for i = 0, node:getNumChildren() - 1 do
@@ -270,7 +260,7 @@ pointRadius = 0.0125
 
 device = gadget.PositionInterface("VJWand")
 
---[[ Action for switching visibility ]]
+--[[ Action for switching visibility of METaL ]]
 Actions.addFrameAction(
 	function()
 		local switchBtn = gadget.DigitalInterface("VJButton2")
