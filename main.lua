@@ -309,7 +309,7 @@ Actions.addFrameAction(
 
 --[[ Action for switching navigation in METaL ]]
 dofile(vrjLua.findInModelSearchPath([[Navigation/rotateWand.lua]]))
-dofile(vrjLua.findInModelSearchPath([[Navigation/NavFly.lua]]))
+--dofile(vrjLua.findInModelSearchPath([[Navigation/NavFly.lua]]))
 --dofile(vrjLua.findInModelSearchPath([[Navigation/NavigationToggle.lua]]))
 
 
