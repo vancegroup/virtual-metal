@@ -11,11 +11,18 @@ assert(fn, "Have to load this from file, not copy and paste, or we can't find ou
 -- to the model search path.
 vrjLua.appendToModelSearchPath(fn)
 
+
+
+--[[Set up Lighting]]
 dofile(vrjLua.findInModelSearchPath([[simpleLightseditjp.lua]]))
+
+--[[Set up Help Menu]]
+dofile(vrjLua.findInModelSearchPath([[Navigation/HelpMenu.lua]]))
 
 --[[ Set up models ]]
 blackengineering = Model[[Black Engineering Model/Black.osg]]
 metalmodel = Model[[mechdyne-models/modified.osg]]
+--tread = Model[[mechdyne-models/tread.osg]]
 serverrack = Model[[component-models/Server Rack/rack model.osg]]
 walkwayandxray = Model[[component-models/Walkway/walkwayandxray.lwo.osg]]
 desk = Model[[component-models/Desk/Desk.lwo.osg]]
@@ -53,6 +60,14 @@ RelativeTo.World:addChild(
 		},
 	}
 )
+
+--RelativeTo.World:addChild(
+	--Transform{
+		--position = {0, 2, 0},
+		--orientation = AngleAxis(Degrees(0), Axis{0.0, 0.0, 0.0}),
+		--tread
+	--}
+--)
 
 
 RelativeTo.World:addChild(
@@ -218,7 +233,7 @@ RelativeTo.World:addChild(groupedlights)
 RelativeTo.World:addChild(
 	Transform{
 		position = {-2, 0, 5.35},
-		orientation = AngleAxis(Degrees(-120), Axis{0.0, 1.0, 0.0}), --was -90 degrees about y
+		orientation = AngleAxis(Degrees(-120), Axis{0.0, 1.0, 0.0}),
 		cubicles
 	}
 )
@@ -263,7 +278,7 @@ device = gadget.PositionInterface("VJWand")
 --[[ Action for switching visibility of METaL ]]
 Actions.addFrameAction(
 	function()
-		local switchBtn = gadget.DigitalInterface("VJButton2")
+		local switchBtn = gadget.DigitalInterface("WMButtonPlus")
 		while true do
 			components.Screens:setAllChildrenOn()
 			components.Scrim:setAllChildrenOn()
@@ -290,6 +305,13 @@ Actions.addFrameAction(
 		end
 	end
 )
+
+
+--[[ Action for switching navigation in METaL ]]
+dofile(vrjLua.findInModelSearchPath([[Navigation/rotateWand.lua]]))
+dofile(vrjLua.findInModelSearchPath([[Navigation/NavFly.lua]]))
+--dofile(vrjLua.findInModelSearchPath([[Navigation/NavigationToggle.lua]]))
+
 
 -- This frame action draws and updates our
 -- cursor at the device's location.
@@ -339,6 +361,20 @@ Actions.addFrameAction(
 
 	end
 )
+
+--add a wiimote clear button
+--Actions.addFrameAction(
+	--function()
+		--local device = gadget.PositionInterface("VJWand")
+		--local drawBtn = gadget.DigitalInterface("WMButtonMinus")
+		--while true do
+			--repeat
+				--Actions.waitForRedraw()
+			--until drawBtn.justPressed
+			--drawXform:removeChildren(0,drawXform:getNumChildren())
+		--end
+	--end
+--)
 
 
 
