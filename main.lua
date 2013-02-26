@@ -22,7 +22,7 @@ dofile(vrjLua.findInModelSearchPath([[Navigation/HelpMenu.lua]]))
 --[[ Set up models ]]
 blackengineering = Model[[Black Engineering Model/Black.osg]]
 metalmodel = Model[[mechdyne-models/modified.osg]]
---tread = Model[[mechdyne-models/tread.osg]]
+tread = Model[[mechdyne-models/tread.osg]]
 serverrack = Model[[component-models/Server Rack/rack model.osg]]
 walkwayandxray = Model[[component-models/Walkway/walkwayandxray.lwo.osg]]
 desk = Model[[component-models/Desk/Desk.lwo.osg]]
@@ -61,13 +61,14 @@ RelativeTo.World:addChild(
 	}
 )
 
---RelativeTo.World:addChild(
-	--Transform{
-		--position = {0, 2, 0},
-		--orientation = AngleAxis(Degrees(0), Axis{0.0, 0.0, 0.0}),
-		--tread
-	--}
---)
+RelativeTo.World:addChild(
+	Transform{
+		position = {0, .0125, 2.725},
+		orientation = AngleAxis(Degrees(-90), Axis{0.0, 1.0, 0.0}),
+		scale = .79,
+		tread
+	}
+)
 
 
 RelativeTo.World:addChild(
