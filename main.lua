@@ -11,13 +11,8 @@ assert(fn, "Have to load this from file, not copy and paste, or we can't find ou
 -- to the model search path.
 vrjLua.appendToModelSearchPath(fn)
 
-
-
---[[Set up Lighting]]
-dofile(vrjLua.findInModelSearchPath([[simpleLightseditjp.lua]]))
-
 --[[Set up Help Menu]]
-dofile(vrjLua.findInModelSearchPath([[Navigation/HelpMenu.lua]]))
+dofile(vrjLua.findInModelSearchPath([[Effects/HelpMenu.lua]]))
 
 --[[ Set up models ]]
 blackengineering = Model[[Black Engineering Model/Black.osg]]
@@ -257,6 +252,7 @@ for i = 0, metalmodel:getNumChildren() - 1 do
 end
 
 --[[ Set up lighting ]]
+dofile(vrjLua.findInModelSearchPath([[Effects/simpleLights.lua]]))
 mylight = osg.Light()
 mylight:setLightNum(0)
 mylight:setAmbient(osg.Vec4(.52, .5, .52, 1))
@@ -275,6 +271,7 @@ require("TransparentGroup")
 pointRadius = 0.0125
 
 device = gadget.PositionInterface("VJWand")
+
 
 --[[ Action for switching visibility of METaL ]]
 Actions.addFrameAction(
@@ -309,9 +306,9 @@ Actions.addFrameAction(
 
 
 --[[ Action for switching navigation in METaL ]]
-dofile(vrjLua.findInModelSearchPath([[Navigation/rotateWand.lua]]))
---dofile(vrjLua.findInModelSearchPath([[Navigation/NavFly.lua]]))
---dofile(vrjLua.findInModelSearchPath([[Navigation/NavigationToggle.lua]]))
+dofile(vrjLua.findInModelSearchPath([[Effects/rotateWand.lua]]))
+dofile(vrjLua.findInModelSearchPath([[Effects/NavFly.lua]]))
+--dofile(vrjLua.findInModelSearchPath([[Effects/NavigationToggle.lua]]))
 
 
 -- This frame action draws and updates our
@@ -339,44 +336,10 @@ Actions.addFrameAction(
 	end
 )
 
--- This action adds to the scenegraph when you
--- press/hold a button to draw
-Actions.addFrameAction(
-	function()
-		local drawBtn = gadget.DigitalInterface("VJButton1")
-		while true do
-			while not drawBtn.pressed do
-				Actions.waitForRedraw()
-			end
-
-			while drawBtn.pressed do
-				local newPoint = osg.PositionAttitudeTransform()
-				newPoint:addChild(Sphere{radius = pointRadius, position = {0, 0, 0}})
-				newPoint:setPosition(device.position - osgnav.position)
-
-				RelativeTo.World:addChild(newPoint)
-
-				Actions.waitForRedraw()
-			end
-		end
-
-	end
-)
-
---add a wiimote clear button
---Actions.addFrameAction(
-	--function()
-		--local device = gadget.PositionInterface("VJWand")
-		--local drawBtn = gadget.DigitalInterface("WMButtonMinus")
-		--while true do
-			--repeat
-				--Actions.waitForRedraw()
-			--until drawBtn.justPressed
-			--drawXform:removeChildren(0,drawXform:getNumChildren())
-		--end
-	--end
---)
-
+--[[This action allows user to draw and clear drawing]]
+dofile(vrjLua.findInModelSearchPath([[Effects/Drawing.lua]]))
+mydraw = DrawingTool{linewidth = (5)}
+mydraw:startDrawing()
 
 
 function startSound()
