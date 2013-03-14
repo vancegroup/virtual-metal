@@ -310,32 +310,6 @@ dofile(vrjLua.findInModelSearchPath([[Effects/rotateWand.lua]]))
 dofile(vrjLua.findInModelSearchPath([[Effects/NavFly.lua]]))
 --dofile(vrjLua.findInModelSearchPath([[Effects/NavigationToggle.lua]]))
 
-
--- This frame action draws and updates our
--- cursor at the device's location.
-Actions.addFrameAction(
-	function()
-		local xform = osg.MatrixTransform()
-		xform:addChild(
-			TransparentGroup{
-				alpha = 0.7,
-				Sphere{
-					radius = pointRadius,
-					position = {0, 0, 0}
-				}
-			}
-		)
-
-		RelativeTo.Room:addChild(xform)
-
-		-- Update the cursor position forever.
-		while true do
-			xform:setMatrix(device.matrix)
-			Actions.waitForRedraw()
-		end
-	end
-)
-
 --[[This action allows user to draw and clear drawing]]
 dofile(vrjLua.findInModelSearchPath([[Effects/Drawing.lua]]))
 mydraw = DrawingTool{linewidth = (5)}
