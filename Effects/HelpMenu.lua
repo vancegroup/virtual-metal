@@ -3,6 +3,11 @@ require("getScriptFilename")
 fn = getScriptFilename()
 vrjLua.appendToModelSearchPath(fn)
 
+-- (node here is the help menu)
+local node_state = node:getOrCreateStateSet()
+node_state:setRenderingHint(20) -- draw last?
+node:setStateSet(node_state)
+
 wiihelp = Transform{
 	position={0,1.3,0},
 	orientation=AngleAxis(Degrees(90), Axis{1.0,0.0,0.0}),
