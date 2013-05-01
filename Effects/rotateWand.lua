@@ -12,19 +12,20 @@ Actions.addFrameAction(updateposTrack)
 Actions.addFrameAction(
 	function(dt)
 		local wand = gadget.PositionInterface("VJWand")
-		local device = gadget.DigitalInterface("WMButtonRight")
+		local device = gadget.DigitalInterface("WMButtonLeft")
+		local device2 = gadget.DigitalInterface("WMButtonRight")
 		local dt = dt
-		local rate = 1
+		local rate = .5
 		while true do
 			repeat
 				dt = Actions.waitForRedraw()
-			until device.pressed
+			until device.pressed or device2.pressed
 			
 			local wandForward = osg.Vec3d(wand.forwardVector:x(),0,wand.forwardVector:z())
 			local rotateMax = osg.Quat()
 			local incRotate = osg.Quat()
 
-			while device.pressed do
+			while device.pressed or device2.pressed do
 				-- first, wait for next frame
 				dt = Actions.waitForRedraw()
 				
