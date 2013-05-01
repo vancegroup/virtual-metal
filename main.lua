@@ -4,20 +4,24 @@ fn = getScriptFilename()
 
 print("This is " .. fn)
 
+
 -- This line will error out if this script wasn't loaded from a file.
 assert(fn, "Have to load this from file, not copy and paste, or we can't find our models!")
+
 
 -- This will add the directory passed (or the parent directory of a file, such as fn)
 -- to the model search path.
 vrjLua.appendToModelSearchPath(fn)
 
+
 --[[Set up Help Menu]]
 dofile(vrjLua.findInModelSearchPath([[Effects/HelpMenu.lua]]))
 
+
 --[[ Set up models ]]
-blackengineering = Model[[Black Engineering Model/Black.osg]]
-metalmodel = Model[[mechdyne-models/modified.osg]]
-tread = Model[[mechdyne-models/tread.osg]]
+blackengineering = Model[[component-models/Black Engineering Model/Black.osg]]
+metalmodel = Model[[component-models/mechdyne-models/modified.osg]]
+tread = Model[[component-models/mechdyne-models/tread.osg]]
 serverrack = Model[[component-models/Server Rack/rack model.osg]]
 walkwayandxray = Model[[component-models/Walkway/walkwayandxray.lwo.osg]]
 desk = Model[[component-models/Desk/Desk.lwo.osg]]
@@ -45,6 +49,53 @@ RelativeTo.World:addChild(
 	}
 )
 
+lights = Group{
+
+	Transform{
+		position = {3.5, 4.35, 7.5},
+		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
+		fluorescent1
+	},
+
+	Transform{
+		position = {6.9, 4.35, 7.75},
+		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
+		fluorescent2
+	},
+
+	Transform{
+		position = {9.2, 4.35, 7.75},
+		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
+		fluorescent2
+	},
+
+	Transform{
+		position = {12.5, 4.35, 7.75},
+		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
+		fluorescent2
+	},
+
+	Transform{
+		position = {16, 5.7, 1.5},
+		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
+		fluorescent3
+	},
+
+	Transform{
+		position = {18, 5.7, 1.5},
+		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
+		fluorescent3
+	},
+}
+
+groupedlights = Transform{
+	position = {-4.3, 0, -1},
+	orientation = AngleAxis(Degrees(-30), Axis{0.0, 1.0, 0.0}),
+	lights
+}
+
+RelativeTo.World:addChild(groupedlights)
+
 RelativeTo.World:addChild(
 	Group{
 		Transform{
@@ -65,7 +116,6 @@ RelativeTo.World:addChild(
 	}
 )
 
-
 RelativeTo.World:addChild(
 	Transform{
 		position = {.55, 1.22, -2.20},
@@ -73,16 +123,6 @@ RelativeTo.World:addChild(
 		serverrack
 	}
 )
-
-
-RelativeTo.World:addChild(
-	Transform{
-		position = {11.85, 1.85, 7.10},
-		orientation = AngleAxis(Degrees(-120), Axis{0.0, 1.0, 0.0}),
-		walkwayandxray
-	}
-)
-
 
 workspace = Group{
 
@@ -179,52 +219,13 @@ groupedworkspace = Transform{
 
 RelativeTo.World:addChild(groupedworkspace)
 
-lights = Group{
-
+RelativeTo.World:addChild(
 	Transform{
-		position = {3.5, 4.35, 7.5},
-		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
-		fluorescent1
-	},
-
-	Transform{
-		position = {6.9, 4.35, 7.75},
-		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
-		fluorescent2
-	},
-
-	Transform{
-		position = {9.2, 4.35, 7.75},
-		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
-		fluorescent2
-	},
-
-	Transform{
-		position = {12.5, 4.35, 7.75},
-		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
-		fluorescent2
-	},
-
-	Transform{
-		position = {16, 5.7, 1.5},
-		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
-		fluorescent3
-	},
-
-	Transform{
-		position = {18, 5.7, 1.5},
-		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
-		fluorescent3
-	},
-}
-
-groupedlights = Transform{
-	position = {-4.3, 0, -1},
-	orientation = AngleAxis(Degrees(-30), Axis{0.0, 1.0, 0.0}),
-	lights
-}
-
-RelativeTo.World:addChild(groupedlights)
+		position = {11.85, 1.85, 7.10},
+		orientation = AngleAxis(Degrees(-120), Axis{0.0, 1.0, 0.0}),
+		walkwayandxray
+	}
+)
 
 RelativeTo.World:addChild(
 	Transform{
@@ -251,6 +252,7 @@ for i = 0, metalmodel:getNumChildren() - 1 do
 	components[child:getName()] = child
 end
 
+
 --[[ Set up lighting ]]
 dofile(vrjLua.findInModelSearchPath([[Effects/simpleLights.lua]]))
 mylight = osg.Light()
@@ -271,44 +273,38 @@ require("TransparentGroup")
 pointRadius = 0.0125
 
 device = gadget.PositionInterface("VJWand")
+local head = gadget.PositionInterface("VJHead")
 
+--[[ Action for tracking position ]]
+updatepositionTrack = function()
+	while true do
+		track = RelativeTo.World:getInverseMatrix():preMult(head.position)
+		Actions.waitForRedraw()
+	end
+end
+Actions.addFrameAction(updatepositionTrack)
 
---[[ Action for switching visibility of METaL ]]
+--[[ Action for returning to the starting position ]]
 Actions.addFrameAction(
 	function()
-		local switchBtn = gadget.DigitalInterface("WMButtonPlus")
+		local toggle_button = gadget.DigitalInterface("WMButtonMinus")
 		while true do
-			components.Screens:setAllChildrenOn()
-			components.Scrim:setAllChildrenOn()
-			components.Projection:setAllChildrenOff()
-
 			repeat
 				Actions.waitForRedraw()
-			until switchBtn.justPressed
-
-			components.Scrim:setAllChildrenOff()
-			components.Screens:setAllChildrenOff()
-			components.Projection:setAllChildrenOn()
-
-			repeat
-				Actions.waitForRedraw()
-			until switchBtn.justPressed
-
-			components.Projection:setAllChildrenOff()
-
-			repeat
-				Actions.waitForRedraw()
-			until switchBtn.justPressed
-
+			until toggle_button.justPressed
+				RelativeTo.World:setMatrix(osg.Matrixd.translate(0, 0, 0))
 		end
 	end
 )
 
+--[[ Action for switching visibility of METaL ]]
+dofile(vrjLua.findInModelSearchPath([[Effects/VisibilityMETaL.lua]]))
+
 
 --[[ Action for switching navigation in METaL ]]
 dofile(vrjLua.findInModelSearchPath([[Effects/rotateWand.lua]]))
-dofile(vrjLua.findInModelSearchPath([[Effects/NavFly.lua]]))
---dofile(vrjLua.findInModelSearchPath([[Effects/NavigationToggle.lua]]))
+dofile(vrjLua.findInModelSearchPath([[Effects/NavWalkandFly.lua]]))
+
 
 --[[This action allows user to draw and clear drawing]]
 dofile(vrjLua.findInModelSearchPath([[Effects/Drawing.lua]]))
@@ -316,8 +312,8 @@ mydraw = DrawingTool{linewidth = (5)}
 mydraw:startDrawing()
 
 
+--[[ Set up sound ]]
 function startSound()
-	--[[ Set up sound ]]
 	snx.changeAPI("Audiere")
 
 	i = snx.SoundInfo()
