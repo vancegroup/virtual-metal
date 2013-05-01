@@ -160,13 +160,13 @@ DrawingTool = function(draw)
 		print("Using default METAL devices")
 		if draw.drawbutton == nil and draw.clearbutton == nil and draw.changeColor_button == nil then
 			print("Using default workstation devices")
-			print("Minus - Clear Drawing")
+			print("Home - Clear Drawing")
 			print("Up - Change Color")
 			print("Trigger (B) - Draw")
 		end
 		draw.drawbutton = draw.drawbutton or gadget.DigitalInterface("WMButtonB")
-		draw.clearbutton = draw.clearbutton or gadget.DigitalInterface("WMButtonMinus")
-		draw.changeColor_button = draw.changeColor_button or gadget.DigitalInterface("WMButtonUp")
+		draw.clearbutton = draw.clearbutton or gadget.DigitalInterface("WMButtonHome")
+		draw.changeColor_button = draw.changeColor_button or gadget.DigitalInterface("WMButton1")
 	else
 		if draw.drawbutton == nil and draw.clearbutton == nil and draw.changeColor_button == nil then
 			print("Using default workstation devices")
@@ -175,8 +175,8 @@ DrawingTool = function(draw)
 			print("Right Mouse - Draw")
 		end
 		draw.drawbutton = draw.drawbutton or gadget.DigitalInterface("WMButtonB")
-		draw.clearbutton = draw.clearbutton or gadget.DigitalInterface("WMButtonMinus")
-		draw.changeColor_button = draw.changeColor_button or gadget.DigitalInterface("WMButtonUp")
+		draw.clearbutton = draw.clearbutton or gadget.DigitalInterface("WMButtonHome")
+		draw.changeColor_button = draw.changeColor_button or gadget.DigitalInterface("WMButton1")
 	end
 	draw.color = draw.color or {1,1,0,1}
 	draw.marker = Transform{SphereMarker{radius = .01, color = draw.color}}
