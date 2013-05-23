@@ -317,17 +317,7 @@ end
 
 --[[ Set up lighting ]]
 dofile(vrjLua.findInModelSearchPath([[Effects/simpleLights.lua]]))
-mylight = osg.Light()
-mylight:setLightNum(0)
-mylight:setAmbient(osg.Vec4(.52, .5, .52, 1))
-mylight:setConstantAttenuation(.000001)
-mylight:setPosition(osg.Vec4(1.5, 2, 2, 0))
-mylightsource = osg.LightSource()
-mylightsource:setLight(mylight)
-mylightsource:setLocalStateSetModes(osg.StateAttribute.Values.ON)
-local ss = RelativeTo.World:getOrCreateStateSet()
-ss:setAssociatedModes(mylight, osg.StateAttribute.Values.ON)
-RelativeTo.Room:addChild(mylightsource)
+
 
 require("Actions")
 require("TransparentGroup")
