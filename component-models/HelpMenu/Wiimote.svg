@@ -14,8 +14,8 @@
    height="2398.2925"
    id="svg2996"
    version="1.1"
-   inkscape:version="0.48.1 "
-   sodipodi:docname="Wiimote.png">
+   inkscape:version="0.48.2 r9819"
+   sodipodi:docname="Wiimote.svg">
   <defs
      id="defs2998">
     <marker
@@ -151,7 +151,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -285,15 +285,15 @@
     <text
        xml:space="preserve"
        style="font-size:72px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="-156.87712"
-       y="800.77075"
+       x="-179.73427"
+       y="823.62787"
        id="text5931-4"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5933-5"
-         x="-156.87712"
-         y="800.77075"
-         style="font-size:144px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">Reset Demo</tspan></text>
+         x="-179.73427"
+         y="823.62787"
+         style="font-size:144px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">Clear Drawing</tspan></text>
     <path
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#080000;stroke-width:6.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend)"
        d="m 1317.9863,1166.3623 -271.4287,-82.857"
@@ -311,7 +311,7 @@
          id="tspan5933-7"
          x="1263.5962"
          y="840.77081"
-         style="font-size:144px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">Clear Drawing</tspan></text>
+         style="font-size:144px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">Reset Demo</tspan></text>
     <path
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#080000;stroke-width:6.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend)"
        d="M 1250.9864,792.56183 1002.4148,581.1334"
