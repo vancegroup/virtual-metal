@@ -55,7 +55,6 @@ RelativeTo.World:addChild(
 )
 
 lights = Group{
-
 	Transform{
 		position = {3.5, 4.35, 7.5},
 		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
@@ -92,13 +91,11 @@ lights = Group{
 		fluorescent3
 	},
 }
-
 groupedlights = Transform{
 	position = {-4.3, 0, -1},
 	orientation = AngleAxis(Degrees(-30), Axis{0.0, 1.0, 0.0}),
 	lights
 }
-
 RelativeTo.World:addChild(groupedlights)
 
 RelativeTo.World:addChild(
@@ -215,13 +212,11 @@ workspace = Group{
 		aeronchair
 	}
 }
-
 groupedworkspace = Transform{
 	position = {-.4, .715, -1.4},
 	orientation = AngleAxis(Degrees(-90), Axis{0.0, 1.0, 0.0}),
 	workspace
 	}
-
 RelativeTo.World:addChild(groupedworkspace)
 
 RelativeTo.World:addChild(
@@ -311,7 +306,6 @@ function getNamedChild(node, name)
 		end
 	end
 end
-
 components = { }
 
 for i = 0, metalmodel:getNumChildren() - 1 do
