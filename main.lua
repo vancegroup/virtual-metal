@@ -332,7 +332,7 @@ pointRadius = 0.0125
 device = gadget.PositionInterface("VJWand")
 local head = gadget.PositionInterface("VJHead")
 
---[[ Action for tracking position ]]
+--[[ Action for tracking position of head ]]
 updatepositionTrack = function()
 	while true do
 		track = RelativeTo.World:getInverseMatrix():preMult(head.position)
