@@ -13,6 +13,8 @@ assert(fn, "Have to load this from file, not copy and paste, or we can't find ou
 -- to the model search path.
 vrjLua.appendToModelSearchPath(fn)
 
+--[[This allows transparent models]]
+require("TransparentGroup")
 
 --[[Set up Help Menu]]
 dofile(vrjLua.findInModelSearchPath([[Effects/HelpMenu.lua]]))
