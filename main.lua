@@ -221,9 +221,71 @@ RelativeTo.World:addChild(groupedworkspace)
 
 RelativeTo.World:addChild(
 	Transform{
-		position = {11.85, 1.85, 7.10},
+		position = {15.75, 2.75, 4},
 		orientation = AngleAxis(Degrees(-120), Axis{0.0, 1.0, 0.0}),
-		walkwayandxray
+		scale = .001,
+		XrayFacility
+	}
+)
+
+TenInchTube = Transform{
+	position = {15.75, 2.75, 4},
+	orientation = AngleAxis(Degrees(-120), Axis{0.0, 1.0, 0.0}),
+	scale = .001,
+	Model([[component-models/XrayFacility/TenInchTube.dae.osg]]),
+}
+TenInchTubeTrans = TransparentGroup{
+	alpha = .35,
+	TenInchTube
+}
+RelativeTo.World:addChild(TenInchTubeTrans)
+
+
+RelativeTo.World:addChild(
+	Transform{
+		position = {7.75, 0.0, 11.675},
+		orientation = AngleAxis(Degrees(-30), Axis{0.0, 1.0, 0.0}),
+		scale = .001,
+		RotatingAssm
+	}
+)
+
+RelativeTo.World:addChild(
+	Transform{
+		position = {7.75, 0.0, 11.675},
+		orientation = AngleAxis(Degrees(-30), Axis{0.0, 1.0, 0.0}),
+		scale = .001,
+		LiftingPlatform
+	}
+)
+
+SixInchTube = Transform{
+	position = {7.75, 0.0, 11.675},
+	orientation = AngleAxis(Degrees(-30), Axis{0.0, 1.0, 0.0}),
+	scale = .001,
+	Model([[component-models/XrayFacility/SixInchTube.dae.osg]]),
+}
+SixInchTubeTrans = TransparentGroup{
+	alpha = .35,
+	SixInchTube
+}
+RelativeTo.World:addChild(SixInchTubeTrans)
+
+RelativeTo.World:addChild(
+	Transform{
+		position = {7.75, 1, 11.675},
+		orientation = AngleAxis(Degrees(-90), Axis{1.0, 0.0, 0.0}),
+		scale = .1,
+		Bubbles
+	}
+)
+
+RelativeTo.World:addChild(
+	Transform{
+		position = {12.775, .05, 3.5},
+		orientation = AngleAxis(Degrees(-90), Axis{1.0, 0.0, 0.0}),
+		scale = .1,
+		Bubbles
 	}
 )
 
