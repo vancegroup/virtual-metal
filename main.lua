@@ -359,8 +359,7 @@ dofile(vrjLua.findInModelSearchPath([[Effects/VisibilityMETaL.lua]]))
 
 
 --[[ Action for switching navigation in METaL ]]
-dofile(vrjLua.findInModelSearchPath([[Effects/rotateWand.lua]]))
-dofile(vrjLua.findInModelSearchPath([[Effects/NavWalkandFly.lua]]))
+dofile(vrjLua.findInModelSearchPath([[Effects/Navigation.lua]]))
 
 
 --[[This action allows user to draw and clear drawing]]
