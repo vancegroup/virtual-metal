@@ -17,7 +17,7 @@ vrjLua.appendToModelSearchPath(fn)
 require("TransparentGroup")
 
 --[[Set up Help Menu]]
-dofile(vrjLua.findInModelSearchPath([[Effects/HelpMenu.lua]]))
+-- dofile(vrjLua.findInModelSearchPath([[Effects/HelpMenu.lua]]))
 
 
 --[[ Set up models ]]
