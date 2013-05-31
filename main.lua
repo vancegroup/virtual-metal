@@ -342,19 +342,3 @@ end
 
 --print("Run 'startSound()' to begin the audio")
 
---[[
-do
-	local image = Model(vrjLua.findInModelSearchPath("colorwithshadow_transparent_large.png"))
-
-	local tex = osg.Texture2D(image)
-
-	local ss = osg.StateSet()
-
-	ss:setTextureAttributeAndModes(0, tex, osg.StateAttribute.Values.ON)
-
-	GL_LIGHTING = 0x0B50
-	ss:setMode(GL_LIGHTING, osg.StateAttribute.Values.OFF)
-	local g = osg.Geometry()
-	local coords=osg.Vec3Array(4)
-end
-]]
