@@ -281,23 +281,6 @@ RelativeTo.World:addChild(
 	}
 )
 
-function getNamedChild(node, name)
-	for i = 0, node:getNumChildren() - 1 do
-		local child = node:getChild(i)
-		print(child:getName())
-		if child:getName() == name then
-			return child
-		end
-	end
-end
-components = { }
-
-for i = 0, metalmodel:getNumChildren() - 1 do
-	local child = metalmodel:getChild(i)
-	components[child:getName()] = child
-end
-
-
 --[[ Set up lighting ]]
 runfile [[Effects/simpleLights.lua]]
 
