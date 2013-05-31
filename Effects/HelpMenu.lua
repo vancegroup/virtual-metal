@@ -1,4 +1,4 @@
-require("Actions")
+require "Actions"
 
 wiihelp = Transform{
 	position={0,1.3,0},
