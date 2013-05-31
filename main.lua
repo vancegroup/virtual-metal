@@ -31,7 +31,7 @@ aeronchair = Model[[component-models/Aeron Chair/HMI_Aeron_Chair_3D.osg]]
 fluorescent1 = Model[[component-models/Lights/Fluorescent1.osg]]
 fluorescent2 = Model[[component-models/Lights/Fluorescent2.osg]]
 fluorescent3 = Model[[component-models/Lights/Fluorescent3.osg]]
-cubicles = Model[[component-models/cubicles/cubicles.ive]]
+cubicles = Model[[component-models/Cubicles/cubicles.ive]]
 
 
 --[[ Arrange models in space ]]
