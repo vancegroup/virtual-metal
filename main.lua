@@ -326,19 +326,8 @@ runfile [[Effects/Drawing.lua]]
 mydraw = DrawingTool{linewidth = (5)}
 mydraw:startDrawing()
 
-
---[[ Set up sound ]]
-function startSound()
-	snx.changeAPI("Audiere")
-
-	i = snx.SoundInfo()
-	i.filename = vrjLua.findInModelSearchPath("aquascape_sunrise_recoded.mp3")
-
-	i.ambient = true
-	s = snx.SoundHandle("bgaudio")
-	s:configure(i)
-	s:trigger(-1)
-end
-
---print("Run 'startSound()' to begin the audio")
+--[[
+Background music - currently disabled
+runfile [[Effects/BackgroundMusic.lua]]
+]]
 
