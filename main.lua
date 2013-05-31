@@ -1,23 +1,12 @@
 --[[ Set up search path ]]
-require("getScriptFilename")
-fn = getScriptFilename()
-
-print("This is " .. fn)
-
-
--- This line will error out if this script wasn't loaded from a file.
-assert(fn, "Have to load this from file, not copy and paste, or we can't find our models!")
-
-
--- This will add the directory passed (or the parent directory of a file, such as fn)
--- to the model search path.
-vrjLua.appendToModelSearchPath(fn)
+require "AddAppDirectory"
+AddAppDirectory()
 
 --[[This allows transparent models]]
 require("TransparentGroup")
 
 --[[Set up Help Menu]]
--- dofile(vrjLua.findInModelSearchPath([[Effects/HelpMenu.lua]]))
+-- runfile([[Effects/HelpMenu.lua]]))
 
 
 --[[ Set up models ]]
