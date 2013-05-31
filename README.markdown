@@ -17,7 +17,10 @@ Furthermore, button 2 (the Home button on the Wiimote) will cycle through three 
 
 See `model-readme.markdown` in the `mechdyne-models` folder for more information on what these components are.
 
+Development Notes
+-----------------
 
+The particle system for the bubble column effect was created using the Delta3D particle system editor.
 
 [vrjlua]:https://github.com/vancegroup/vr-jugglua
 [metal]:http://vrac.iastate.edu/METaL/
