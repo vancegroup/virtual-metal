@@ -19,6 +19,6 @@ See `model-readme.markdown` in the `mechdyne-models` folder for more information
 
 
 
-[vrjlua]:https://github.com/vance-group/vr-jugglua
+[vrjlua]:https://github.com/vancegroup/vr-jugglua
 [metal]:http://vrac.iastate.edu/METaL/
 [vrac]:http://vrac.iastate.edu/
