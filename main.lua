@@ -328,6 +328,6 @@ mydraw:startDrawing()
 
 --[[
 Background music - currently disabled
-runfile [[Effects/BackgroundMusic.lua]]
+runfile "Effects/BackgroundMusic.lua"
 ]]
 
