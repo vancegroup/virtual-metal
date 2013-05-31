@@ -95,13 +95,11 @@ RelativeTo.World:addChild(
 )
 
 RelativeTo.World:addChild(
-	Group{
-		Transform{
-			position = {1.69, .055, -.25},
-			orientation = AngleAxis(Degrees(0), Axis{0.0, 0.0, 0.0}),
-			scale = .00099,
-			metalmodel
-		},
+	Transform{
+		position = {1.69, .055, -.25},
+		orientation = AngleAxis(Degrees(0), Axis{0.0, 0.0, 0.0}),
+		scale = .00099,
+		metalmodel
 	}
 )
 

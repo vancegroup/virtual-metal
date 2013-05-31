@@ -1,7 +1,4 @@
 require("Actions")
-require("getScriptFilename")
-fn = getScriptFilename()
-vrjLua.appendToModelSearchPath(fn)
 
 wiihelp = Transform{
 	position={0,1.3,0},
