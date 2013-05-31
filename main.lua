@@ -326,8 +326,6 @@ runfile [[Effects/Drawing.lua]]
 mydraw = DrawingTool{linewidth = (5)}
 mydraw:startDrawing()
 
---[[
-Background music - currently disabled
+--[[ Background music - run startSound() to start it ]]
 runfile "Effects/BackgroundMusic.lua"
-]]
 
