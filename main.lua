@@ -304,7 +304,7 @@ end
 
 
 --[[ Set up lighting ]]
-dofile(vrjLua.findInModelSearchPath([[Effects/simpleLights.lua]]))
+runfile [[Effects/simpleLights.lua]]
 
 
 require("Actions")
@@ -338,15 +338,15 @@ Actions.addFrameAction(
 )
 
 --[[ Action for switching visibility of METaL ]]
-dofile(vrjLua.findInModelSearchPath([[Effects/VisibilityMETaL.lua]]))
+runfile [[Effects/VisibilityMETaL.lua]]
 
 
 --[[ Action for switching navigation in METaL ]]
-dofile(vrjLua.findInModelSearchPath([[Effects/Navigation.lua]]))
+runfile [[Effects/Navigation.lua]]
 
 
 --[[This action allows user to draw and clear drawing]]
-dofile(vrjLua.findInModelSearchPath([[Effects/Drawing.lua]]))
+runfile [[Effects/Drawing.lua]]
 mydraw = DrawingTool{linewidth = (5)}
 mydraw:startDrawing()
 
