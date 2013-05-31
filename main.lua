@@ -10,11 +10,20 @@ require("TransparentGroup")
 
 
 --[[ Set up models ]]
-blackengineering = Model[[component-models/Black Engineering Model/Black.osg]]
+blackengineering = Transform{
+	position = {19.5, 0, 42.5},
+	orientation = AngleAxis(Degrees(60), Axis{0.0, 1.0, 0.0}),
+	Model[[component-models/Black Engineering Model/Black.osg]]
+}
 metalmodel = Model[[component-models/mechdyne-models/modified.osg]]
 tread = Model[[component-models/mechdyne-models/tread.osg]]
 serverrack = Model[[component-models/Server Rack/rack model.osg]]
-XrayFacility = Model[[component-models/XrayFacility/XrayFacility.dae.osg]]
+XrayFacility = Transform{
+	position = {15.75, 2.75, 4},
+	orientation = AngleAxis(Degrees(-120), Axis{0.0, 1.0, 0.0}),
+	scale = .001,
+	Model[[component-models/XrayFacility/XrayFacility.dae.osg]]
+}
 RotatingAssm = Model[[component-models/XrayFacility/RotatingAssm.dae.osg]]
 LiftingPlatform = Model[[component-models/XrayFacility/LiftingPlatform.dae.osg]]
 Bubbles = Model[[component-models/Bubbles/Bubbles.osg]]
@@ -36,11 +45,7 @@ cubicles = Model[[component-models/Cubicles/cubicles.ive]]
 
 --[[ Arrange models in space ]]
 RelativeTo.World:addChild(
-	Transform{
-		position = {19.5, 0, 42.5},
-		orientation = AngleAxis(Degrees(60), Axis{0.0, 1.0, 0.0}), 
 		blackengineering
-	}
 )
 
 lights = Group{
@@ -80,12 +85,14 @@ lights = Group{
 		fluorescent3
 	},
 }
-groupedlights = Transform{
-	position = {-4.3, 0, -1},
-	orientation = AngleAxis(Degrees(-30), Axis{0.0, 1.0, 0.0}),
-	lights
-}
-RelativeTo.World:addChild(groupedlights)
+
+RelativeTo.World:addChild(
+	Transform{
+		position = {-4.3, 0, -1},
+		orientation = AngleAxis(Degrees(-30), Axis{0.0, 1.0, 0.0}),
+		lights
+	}
+)
 
 RelativeTo.World:addChild(
 	Group{
@@ -115,7 +122,9 @@ RelativeTo.World:addChild(
 	}
 )
 
-workspace = Group{
+workspace = Transform{	
+	position = {-.4, .715, -1.4},
+	orientation = AngleAxis(Degrees(-90), Axis{0.0, 1.0, 0.0}),
 
 	Transform{
 		position = {.1, 0, .25},
@@ -201,33 +210,20 @@ workspace = Group{
 		aeronchair
 	}
 }
-groupedworkspace = Transform{
-	position = {-.4, .715, -1.4},
-	orientation = AngleAxis(Degrees(-90), Axis{0.0, 1.0, 0.0}),
-	workspace
-	}
-RelativeTo.World:addChild(groupedworkspace)
 
-RelativeTo.World:addChild(
+RelativeTo.World:addChild(workspace)
+
+TenInchTube = TransparentGroup{
+	alpha = .35,
 	Transform{
 		position = {15.75, 2.75, 4},
 		orientation = AngleAxis(Degrees(-120), Axis{0.0, 1.0, 0.0}),
 		scale = .001,
-		XrayFacility
+		Model([[component-models/XrayFacility/TenInchTube.dae.osg]]),
 	}
-)
+}
 
-TenInchTube = Transform{
-	position = {15.75, 2.75, 4},
-	orientation = AngleAxis(Degrees(-120), Axis{0.0, 1.0, 0.0}),
-	scale = .001,
-	Model([[component-models/XrayFacility/TenInchTube.dae.osg]]),
-}
-TenInchTubeTrans = TransparentGroup{
-	alpha = .35,
-	TenInchTube
-}
-RelativeTo.World:addChild(TenInchTubeTrans)
+RelativeTo.World:addChild(TenInchTube)
 
 
 RelativeTo.World:addChild(
@@ -248,17 +244,16 @@ RelativeTo.World:addChild(
 	}
 )
 
-SixInchTube = Transform{
-	position = {7.75, 0.0, 11.675},
-	orientation = AngleAxis(Degrees(-30), Axis{0.0, 1.0, 0.0}),
-	scale = .001,
-	Model([[component-models/XrayFacility/SixInchTube.dae.osg]]),
-}
-SixInchTubeTrans = TransparentGroup{
+SixInchTube = TransparentGroup{
 	alpha = .35,
-	SixInchTube
+	Transform{
+		position = {7.75, 0.0, 11.675},
+		orientation = AngleAxis(Degrees(-30), Axis{0.0, 1.0, 0.0}),
+		scale = .001,
+		Model([[component-models/XrayFacility/SixInchTube.dae.osg]]),
+	}
 }
-RelativeTo.World:addChild(SixInchTubeTrans)
+RelativeTo.World:addChild(SixInchTube)
 
 RelativeTo.World:addChild(
 	Transform{
