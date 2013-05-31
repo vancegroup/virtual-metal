@@ -32,9 +32,11 @@ Actions.addFrameAction(
 				Actions.waitForRedraw()
 			until device.justPressed
 			RelativeTo.Room:addChild(wiihelp)
+
 			repeat
 				Actions.waitForRedraw()
 			until device.justPressed
+
 			RelativeTo.Room:removeChild(wiihelp)
 		end
 	end
