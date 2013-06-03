@@ -1,3 +1,5 @@
+require("Actions")
+
 --[[ Set up search path ]]
 require "AddAppDirectory"
 AddAppDirectory()
@@ -6,7 +8,7 @@ AddAppDirectory()
 require("TransparentGroup")
 
 --[[Set up Help Menu]]
--- runfile([[Effects/HelpMenu.lua]]))
+runfile([[Effects/HelpMenu.lua]])
 
 
 --[[ Set up models ]]
@@ -15,6 +17,7 @@ blackengineering = Transform{
 	orientation = AngleAxis(Degrees(60), Axis{0.0, 1.0, 0.0}),
 	Model[[component-models/Black Engineering Model/Black.osg]]
 }
+RelativeTo.World:addChild(blackengineering)
 metalmodel = Model[[component-models/mechdyne-models/modified.osg]]
 tread = Model[[component-models/mechdyne-models/tread.osg]]
 serverrack = Model[[component-models/Server Rack/rack model.osg]]
@@ -24,6 +27,7 @@ XrayFacility = Transform{
 	scale = .001,
 	Model[[component-models/XrayFacility/XrayFacility.dae.osg]]
 }
+RelativeTo.World:addChild(XrayFacility)
 RotatingAssm = Model[[component-models/XrayFacility/RotatingAssm.dae.osg]]
 LiftingPlatform = Model[[component-models/XrayFacility/LiftingPlatform.dae.osg]]
 Bubbles = Model[[component-models/Bubbles/Bubbles.osg]]
@@ -44,10 +48,6 @@ cubicles = Model[[component-models/Cubicles/cubicles.ive]]
 
 
 --[[ Arrange models in space ]]
-RelativeTo.World:addChild(
-		blackengineering
-)
-
 lights = Group{
 	Transform{
 		position = {3.5, 4.35, 7.5},
@@ -208,7 +208,6 @@ workspace = Transform{
 		aeronchair
 	}
 }
-
 RelativeTo.World:addChild(workspace)
 
 TenInchTube = TransparentGroup{
@@ -220,7 +219,6 @@ TenInchTube = TransparentGroup{
 		Model([[component-models/XrayFacility/TenInchTube.dae.osg]]),
 	}
 }
-
 RelativeTo.World:addChild(TenInchTube)
 
 RotatingAssm = Transform{
