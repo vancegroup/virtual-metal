@@ -223,14 +223,24 @@ TenInchTube = TransparentGroup{
 
 RelativeTo.World:addChild(TenInchTube)
 
+RotatingAssm = Transform{
+	position = {7.75, 0.0, 11.675},
+	orientation = AngleAxis(Degrees(-30), Axis{0.0, 1.0, 0.0}),
+	scale = .001,
+	Model([[component-models/XrayFacility/RotatingAssm.dae.osg]])
+}
+RelativeTo.World:addChild(RotatingAssm)
 
-RelativeTo.World:addChild(
-	Transform{
-		position = {7.75, 0.0, 11.675},
-		orientation = AngleAxis(Degrees(-30), Axis{0.0, 1.0, 0.0}),
-		scale = .001,
-		RotatingAssm
-	}
+anglesPerSecond = 10
+Actions.addFrameAction(
+	function(dt)
+		local angle = 0
+		while true do
+			angle = angle + anglesPerSecond * dt
+			RotatingAssm.Attitude = AngleAxis(Degrees(angle), Axis{0, 1, 0})
+			dt = Actions.waitForRedraw()
+		end
+	end
 )
 
 RelativeTo.World:addChild(
