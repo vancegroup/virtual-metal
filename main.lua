@@ -247,25 +247,17 @@ RelativeTo.World:addChild(
 	}
 )
 
--- SixInchTube = TransparentGroup{
-	-- alpha = .35,
-	-- Transform{
-		-- position = {7.75, 0.0, 11.675},
-		-- orientation = AngleAxis(Degrees(-30), Axis{0.0, 1.0, 0.0}),
-		-- scale = .001,
-		-- Model([[component-models/XrayFacility/SixInchTube.dae.osg]]),
-	-- }
--- }
--- RelativeTo.World:addChild(SixInchTube)
-
-RelativeTo.World:addChild(
+SixInchTube = TransparentGroup{
+	alpha = .15,
 	Transform{
-		position = {7.75, 1, 11.675},
-		orientation = AngleAxis(Degrees(-90), Axis{1.0, 0.0, 0.0}),
-		scale = .1,
-		Bubbles
+		position = {7.75, 0.0, 11.675},
+		orientation = AngleAxis(Degrees(-30), Axis{0.0, 1.0, 0.0}),
+		scale = .001,
+		Model([[component-models/XrayFacility/SixInchTube.dae.osg]]),
 	}
-)
+}
+RelativeTo.World:addChild(SixInchTube)
+
 
 RelativeTo.World:addChild(
 	Transform{
