@@ -1,15 +1,12 @@
 require("Actions")
+require("TransparentGroup")
 
 --[[ Set up search path ]]
 require "AddAppDirectory"
 AddAppDirectory()
 
---[[This allows transparent models]]
-require("TransparentGroup")
-
 --[[Set up Help Menu]]
 runfile([[Effects/HelpMenu.lua]])
-
 
 --[[ Set up models ]]
 blackengineering = Transform{
@@ -308,6 +305,7 @@ updatepositionTrack = function()
 end
 Actions.addFrameAction(updatepositionTrack)
 
+
 --[[ Action for returning to the starting position ]]
 Actions.addFrameAction(
 	function()
@@ -333,6 +331,7 @@ runfile [[Effects/Navigation.lua]]
 runfile [[Effects/Drawing.lua]]
 mydraw = DrawingTool{linewidth = (5)}
 mydraw:startDrawing()
+
 
 --[[ Background music - run startSound() to start it ]]
 runfile "Effects/BackgroundMusic.lua"
