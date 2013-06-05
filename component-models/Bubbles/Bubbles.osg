@@ -106,7 +106,7 @@ Group {
       resetTime 0
       useDefaultTemplate TRUE
       osgParticle::RandomRateCounter {
-        rateRange 500 500
+        rateRange 75 75
       }
       osgParticle::SectorPlacer {
         center 0 0 0
