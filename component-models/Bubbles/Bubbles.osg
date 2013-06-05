@@ -117,7 +117,7 @@ Group {
         thetaRange 0 0
         phiRange 0 6.28319
         initialSpeedRange 1.8 2
-        initialRotationalSpeedRange -4 -4 -4 4 4 4
+        initialRotationalSpeedRange 0 0 0 0 0 0
       }
     }
   }
