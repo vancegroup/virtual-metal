@@ -258,15 +258,9 @@ SixInchTube = TransparentGroup{
 }
 RelativeTo.World:addChild(SixInchTube)
 
+-- [[Add bubbles]]
+runfile [[Effects/Bubbles.lua]]
 
-RelativeTo.World:addChild(
-	Transform{
-		position = {12.775, .05, 3.5},
-		orientation = AngleAxis(Degrees(-90), Axis{1.0, 0.0, 0.0}),
-		scale = .1,
-		Bubbles
-	}
-)
 
 RelativeTo.World:addChild(
 	Transform{
