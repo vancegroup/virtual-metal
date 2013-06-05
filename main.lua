@@ -207,16 +207,16 @@ workspace = Transform{
 }
 RelativeTo.World:addChild(workspace)
 
--- TenInchTube = TransparentGroup{
-	-- alpha = .35,
-	-- Transform{
-		-- position = {15.75, 2.75, 4},
-		-- orientation = AngleAxis(Degrees(-120), Axis{0.0, 1.0, 0.0}),
-		-- scale = .001,
-		-- Model([[component-models/XrayFacility/TenInchTube.dae.osg]]),
-	-- }
--- }
--- RelativeTo.World:addChild(TenInchTube)
+TenInchTube = TransparentGroup{
+	alpha = .15,
+	Transform{
+		position = {15.75, 2.75, 4},
+		orientation = AngleAxis(Degrees(-120), Axis{0.0, 1.0, 0.0}),
+		scale = .001,
+		Model([[component-models/XrayFacility/TenInchTube.dae.osg]]),
+	}
+}
+RelativeTo.World:addChild(TenInchTube)
 
 RotatingAssm = Transform{
 	position = {7.75, 0.0, 11.675},
