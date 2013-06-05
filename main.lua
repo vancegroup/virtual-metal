@@ -263,6 +263,24 @@ RelativeTo.World:addChild(SixInchTube)
 
 RelativeTo.World:addChild(
 	Transform{
+		position = {7.75, 1, 11.675},
+		orientation = AngleAxis(Degrees(-90), Axis{1.0, 0.0, 0.0}),
+		scale = .1,
+		Bubbles
+	}
+)
+
+RelativeTo.World:addChild(
+	Transform{
+		position = {12.775, .05, 3.5},
+		orientation = AngleAxis(Degrees(-90), Axis{1.0, 0.0, 0.0}),
+		scale = .1,
+		Bubbles
+	}
+)
+
+RelativeTo.World:addChild(
+	Transform{
 		position = {-2, 0, 5.35},
 		orientation = AngleAxis(Degrees(-120), Axis{0.0, 1.0, 0.0}),
 		cubicles
