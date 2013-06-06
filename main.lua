@@ -217,6 +217,11 @@ TenInchTube = TransparentGroup{
 	}
 }
 RelativeTo.World:addChild(TenInchTube)
+TenInchTube_ss = TenInchTube:getOrCreateStateSet()
+
+-- Render the tube after the bubbles
+TenInchTube_ss:setRenderBinDetails(80, "RenderBin")
+
 
 RotatingAssm = Transform{
 	position = {7.75, 0.0, 11.675},
@@ -257,9 +262,12 @@ SixInchTube = TransparentGroup{
 	}
 }
 RelativeTo.World:addChild(SixInchTube)
+SixInchTube_ss = SixInchTube:getOrCreateStateSet()
 
 -- [[Add bubbles]]
 runfile [[Effects/Bubbles.lua]]
+-- Render the tube after the bubbles
+SixInchTube_ss:setRenderBinDetails(80, "RenderBin")
 
 
 RelativeTo.World:addChild(
