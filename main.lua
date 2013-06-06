@@ -264,8 +264,6 @@ SixInchTube = TransparentGroup{
 RelativeTo.World:addChild(SixInchTube)
 SixInchTube_ss = SixInchTube:getOrCreateStateSet()
 
--- [[Add bubbles]]
-runfile [[Effects/Bubbles.lua]]
 -- Render the tube after the bubbles
 SixInchTube_ss:setRenderBinDetails(80, "RenderBin")
 
