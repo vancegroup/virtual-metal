@@ -268,6 +268,32 @@ SixInchTube_ss = SixInchTube:getOrCreateStateSet()
 SixInchTube_ss:setRenderBinDetails(80, "RenderBin")
 
 
+Bubbles1 = Transform{
+	position = {7.75, 1, 11.675},
+	orientation = AngleAxis(Degrees(-90), Axis{1.0, 0.0, 0.0}),
+	scale = .1,
+	Model([[component-models/Bubbles/Bubbles.osg]]),
+}
+RelativeTo.World:addChild(Bubbles1)
+Bubbles1_ss = Bubbles1:getOrCreateStateSet()
+
+-- Render the bubbles before the transparent tubes
+Bubbles1_ss:setRenderBinDetails(40, "RenderBin")
+
+
+Bubbles2 = Transform{
+	position = {12.775, .05, 3.5},
+	orientation = AngleAxis(Degrees(-90), Axis{1.0, 0.0, 0.0}),
+	scale = .1,
+	Model([[component-models/Bubbles/Bubbles.osg]]),
+}
+RelativeTo.World:addChild(Bubbles2)
+Bubbles2_ss = Bubbles2:getOrCreateStateSet()
+
+-- Render the bubbles before the transparent tubes
+Bubbles2_ss:setRenderBinDetails(40, "RenderBin")
+
+
 RelativeTo.World:addChild(
 	Transform{
 		position = {-2, 0, 5.35},
