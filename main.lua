@@ -231,7 +231,7 @@ RotatingAssm = Transform{
 }
 RelativeTo.World:addChild(RotatingAssm)
 
-anglesPerSecond = 10
+anglesPerSecond = 3
 Actions.addFrameAction(
 	function(dt)
 		local angle = 0
