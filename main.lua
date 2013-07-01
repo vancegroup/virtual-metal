@@ -251,13 +251,11 @@ Actions.addFrameAction(
 				angle = angle + anglesPerSecond * dt
 				RotatingAssm.Attitude = AngleAxis(Degrees(angle), Axis{0, 1, 0})
 				dt = Actions.waitForRedraw()
-				print (angle)
 			end
 			while angle > 135 do
 				angle = angle - anglesPerSecond * dt
 				RotatingAssm.Attitude = AngleAxis(Degrees(angle), Axis{0, 1, 0})
 				dt = Actions.waitForRedraw()
-				print (angle)
 			end
 		end
 	end
