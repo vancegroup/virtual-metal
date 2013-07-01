@@ -336,7 +336,7 @@ Actions.addFrameAction(updatepositionTrack)
 --[[ Action for returning to the starting position ]]
 Actions.addFrameAction(
 	function()
-		local toggle_button = gadget.DigitalInterface("WMButtonMinus")
+		local toggle_button = gadget.DigitalInterface("WMButtonHome")
 		while true do
 			repeat
 				Actions.waitForRedraw()
