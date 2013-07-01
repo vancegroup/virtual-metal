@@ -5,8 +5,19 @@ require("TransparentGroup")
 require "AddAppDirectory"
 AddAppDirectory()
 
+--[[ Background music - run startSound() to start it ]]
+runfile "Effects/BackgroundMusic.lua"
+
+--[[ Action for switching navigation in METaL ]]
+runfile [[Effects/Navigation.lua]]
+
 --[[Set up Help Menu]]
 runfile([[Effects/HelpMenu.lua]])
+
+--[[This action allows user to draw and clear drawing]]
+runfile [[Effects/Drawing.lua]]
+mydraw = DrawingTool{linewidth = (5)}
+mydraw:startDrawing()
 
 --[[ Set up models ]]
 blackengineering = Transform{
@@ -313,11 +324,6 @@ RelativeTo.World:addChild(
 
 --[[ Set up lighting ]]
 runfile [[Effects/simpleLights.lua]]
-
-
-require("Actions")
-require("TransparentGroup")
-
 pointRadius = 0.0125
 
 device = gadget.PositionInterface("VJWand")
@@ -348,18 +354,3 @@ Actions.addFrameAction(
 
 --[[ Action for switching visibility of METaL ]]
 runfile [[Effects/VisibilityMETaL.lua]]
-
-
---[[ Action for switching navigation in METaL ]]
-runfile [[Effects/Navigation.lua]]
-
-
---[[This action allows user to draw and clear drawing]]
-runfile [[Effects/Drawing.lua]]
-mydraw = DrawingTool{linewidth = (5)}
-mydraw:startDrawing()
-
-
---[[ Background music - run startSound() to start it ]]
-runfile "Effects/BackgroundMusic.lua"
-
