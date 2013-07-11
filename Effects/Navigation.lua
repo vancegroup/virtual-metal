@@ -108,6 +108,8 @@ Actions.addFrameAction(
 		local wand = gadget.PositionInterface("VJWand")
 		local device = gadget.DigitalInterface("WMButtonLeft")
 		local device2 = gadget.DigitalInterface("WMButtonRight")
+		-- local device = gadget.DigitalInterface("VJButton2")
+		-- local device2 = gadget.DigitalInterface("VJButton2")
 		local dt = dt
 		local rate = .5
 		while true do
