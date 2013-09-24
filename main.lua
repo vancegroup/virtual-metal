@@ -6,17 +6,17 @@ require "AddAppDirectory"
 AddAppDirectory()
 
 --[[ Background music - run startSound() to start it ]]
-runfile "Effects/BackgroundMusic.lua"
+runfile([[Effects/BackgroundMusic.lua]])
 
 --[[ Action for switching navigation in METaL ]]
-runfile [[Effects/Navigation.lua]]
+runfile([[Effects/Navigation.lua]])
 
 --[[Set up Help Menu]]
 runfile([[Effects/HelpMenu.lua]])
 
 --[[This action allows user to draw and clear drawing]]
-runfile [[Effects/Drawing.lua]]
-mydraw = DrawingTool{linewidth = (5)}
+runfile([[Effects/Drawing.lua]])
+mydraw = DrawingTool{metal = true, linewidth = (5)}
 mydraw:startDrawing()
 
 --[[ Set up models ]]
@@ -120,13 +120,13 @@ RelativeTo.World:addChild(
 	}
 )
 
-RelativeTo.World:addChild(
+--[[RelativeTo.World:addChild(
 	Transform{
 		position = {.55, 1.22, -2.20},
 		orientation = AngleAxis(Degrees(-5), Axis{0.0, 1.0, 0.0}),
 		serverrack
 	}
-)
+)]]
 
 workspace = Transform{	
 	position = {-.4, .715, -1.4},
