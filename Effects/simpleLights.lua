@@ -1,10 +1,3 @@
-require("getScriptFilename")
-fn = getScriptFilename()
-assert(fn, "Have to load this from file, not copy and paste, or we can't find our models!")
-vrjLua.appendToModelSearchPath(fn)
-vrjLua.appendToModelSearchPath(vrjLua.findInModelSearchPath("../../models/"))
-
-
 ss = RelativeTo.World:getOrCreateStateSet()
 
 l1=osg.Light()
