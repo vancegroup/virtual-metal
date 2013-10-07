@@ -1,6 +1,5 @@
 require("Actions")
 require("TransparentGroup")
-
 require ("getScriptFilename")
 vrjLua.appendToModelSearchPath(getScriptFilename())
 
