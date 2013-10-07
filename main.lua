@@ -1,21 +1,20 @@
 require("Actions")
 require("TransparentGroup")
 
---[[ Set up search path ]]
-require "AddAppDirectory"
-AddAppDirectory()
+require ("getScriptFilename")
+vrjLua.appendToModelSearchPath(getScriptFilename())
 
 --[[ Background music - run startSound() to start it ]]
-runfile([[Effects/BackgroundMusic.lua]])
+dofile(vrjLua.findInModelSearchPath[[Effects/BackgroundMusic.lua]])
 
---[[ Action for switching navigation in METaL ]]
-runfile([[Effects/Navigation.lua]])
+-- [[ Action for switching navigation in METaL ]]
+dofile(vrjLua.findInModelSearchPath[[vEffects/Navigation.lua]])
 
 --[[Set up Help Menu]]
-runfile([[Effects/HelpMenu.lua]])
+dofile(vrjLua.findInModelSearchPath[[Effects/HelpMenu.lua]])
 
 --[[This action allows user to draw and clear drawing]]
-runfile([[Effects/Drawing.lua]])
+dofile(vrjLua.findInModelSearchPath[[Effects/Drawing.lua]])
 mydraw = DrawingTool{metal = true, linewidth = (5)}
 mydraw:startDrawing()
 
@@ -321,7 +320,7 @@ RelativeTo.World:addChild(
 )
 
 --[[ Set up lighting ]]
-runfile [[Effects/simpleLights.lua]]
+dofile(vrjLua.findInModelSearchPath[[Effects/simpleLights.lua]])
 pointRadius = 0.0125
 
 device = gadget.PositionInterface("VJWand")
@@ -351,4 +350,4 @@ Actions.addFrameAction(
 )
 
 --[[ Action for switching visibility of METaL ]]
-runfile [[Effects/VisibilityMETaL.lua]]
+dofile(vrjLua.findInModelSearchPath[[Effects/VisibilityMETaL.lua]])
