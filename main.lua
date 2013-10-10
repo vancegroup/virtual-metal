@@ -8,6 +8,12 @@ dofile(vrjLua.findInModelSearchPath[[Effects/BackgroundMusic.lua]])
 
 -- [[ Action for switching navigation in METaL ]]
 dofile(vrjLua.findInModelSearchPath[[vEffects/Navigation.lua]])
+myNav = FlyOrWalkNavigation{
+	start = "walking",
+	switchButton = gadget.DigitalInterface("WMButtonPlus"),
+	initiateRotationButton1 = gadget.DigitalInterface("WMButtonRight"),
+	initiateRotationButton2 = gadget.DigitalInterface("WMButtonLeft"),
+}
 
 --[[Set up Help Menu]]
 dofile(vrjLua.findInModelSearchPath[[Effects/HelpMenu.lua]])
